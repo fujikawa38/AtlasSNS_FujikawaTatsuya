@@ -9,6 +9,7 @@
   {{ Form::text('email',null,['class' => 'input']) }}
   {{ Form::label('password') }}
   {{ Form::password('password',['class' => 'input']) }}
+  <!-- {{ Form::input('hidden','id') }} -->
 
   {{ Form::submit('ログイン') }}
 

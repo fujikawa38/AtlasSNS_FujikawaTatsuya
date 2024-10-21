@@ -35,7 +35,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
+        $request->session()->put('key', $request->username);   //addedで名前を表示するためにusernameを送る
         return redirect('added');
     }
 

@@ -29,7 +29,14 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // $userId = Auth::user() ->id;
+
         return redirect()->intended('top');
+    }
+
+    public function logout(Request $request) {   //ログアウト処理のメソッド
+        Auth::logout();
+        return redirect("login");
     }
 
 }
