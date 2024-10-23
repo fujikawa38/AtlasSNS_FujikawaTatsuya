@@ -2,7 +2,8 @@
             <h1><a><img src="images/atlas.png"></a></h1>
             <div id="">
                 <div id="">
-                    <p>さん</p>
+                    <p>{{ Auth::user() -> username }}さん</p>
+                    <img src= "{{ asset('images/' . Auth::user() -> icon_image) }}" class="">
                 </div>
                 <ul>
                     <li><a href="top">HOME</a></li>

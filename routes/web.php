@@ -27,6 +27,7 @@ Route::get('top', [PostsController::class, 'index']);
 Route::get('profile', [ProfileController::class, 'profile']);
 
 Route::get('search', [UsersController::class, 'search']);   //ページ遷移できないためindex→searchに変更
+Route::get('search', [UsersController::class, 'index']);
 
 Route::get('follow-list', [FollowsController::class, 'followList']);
 Route::get('follower-list', [FollowsController::class, 'followerList']);
