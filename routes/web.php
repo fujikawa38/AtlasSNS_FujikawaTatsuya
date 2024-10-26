@@ -27,9 +27,12 @@ Route::get('top', [PostsController::class, 'index']);
 Route::get('profile', [ProfileController::class, 'profile']);
 
 Route::get('search', [UsersController::class, 'search']);   //ページ遷移できないためindex→searchに変更
-Route::get('search', [UsersController::class, 'index']);
+// Route::get('search', [UsersController::class, 'user']);
+// Route::get('search', [UsersController::class, 'follows']);
 
 Route::get('follow-list', [FollowsController::class, 'followList']);
+// Route::get('follow-list', [FollowsController::class, 'following']);
+
 Route::get('follower-list', [FollowsController::class, 'followerList']);
 
 Route::get('logout', [AuthenticatedSessionController::class, 'logout']);   //logoutメソッドと接続

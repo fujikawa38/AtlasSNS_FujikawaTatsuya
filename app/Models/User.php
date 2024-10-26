@@ -32,4 +32,12 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function followings() {
+        return $this->belongsTo('App\Models\User', 'Follow', 'following_id', 'followed_id');
+    }
+
+    public function followers() {
+        return $this->belongsTo('App\Models\User', 'Follow', 'followed_id', 'following_id');
+    }
 }

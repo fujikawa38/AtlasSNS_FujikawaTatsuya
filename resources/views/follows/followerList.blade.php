@@ -1,6 +1,9 @@
 <x-login-layout>
 
-
-  <h2>機能を実装していきましょう。</h2>
+  <div>
+  @foreach($followers as $follower)
+  <img src="{{ asset('images/' . $follower->icon_image ) }}">
+  @endforeach
+  </div>
 
 </x-login-layout>
