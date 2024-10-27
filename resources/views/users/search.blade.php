@@ -14,13 +14,11 @@
     <div class="">
       <img src="{{ asset('images/' . $user->icon_image ) }}">
       <p>{{ $user->username }}</p>
-    @foreach ($follows as $follow)
-      @if ( $follow->following_id == Auth::user()->id && $follow->followed_id == $user->id )
+      @if ($user->relation() == 1 || $user->relation() == 3)
         <a href="#">フォロー解除</a>
       @else
         <a href="#">フォローする</a>
       @endif
-    @endforeach
     </div>
   @endforeach
 </div>

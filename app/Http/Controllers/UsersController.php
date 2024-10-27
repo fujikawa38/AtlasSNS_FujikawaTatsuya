@@ -19,8 +19,7 @@ class UsersController extends Controller
 
     public function search(){
         $users = User::where('id', '!=', Auth::user()->id )->get();
-        $follows = Follow::get();
-        return view('users.search', compact('users', 'follows'));
+        return view('users.search', compact('users'));
     }
 
     // public function user()
