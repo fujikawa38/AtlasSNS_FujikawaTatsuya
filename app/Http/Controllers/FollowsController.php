@@ -26,6 +26,12 @@ class FollowsController extends Controller
         return view('follows.followerList', compact('followers'));
     }
 
+
+
+    // public function cancelFollow(Request $request){
+    //     $following = $request->input('cancelFollow');
+    // }
+
     // public function following() {
     // $followings = Follow::where('following_id', 'Auth::user()->id')->get();
     // return view('follows.followerList', ['follows'=>$followings]);

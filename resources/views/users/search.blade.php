@@ -15,9 +15,9 @@
       <img src="{{ asset('images/' . $user->icon_image ) }}">
       <p>{{ $user->username }}</p>
       @if ($user->relation() == 1 || $user->relation() == 3)
-        <a href="#">フォロー解除</a>
+        <a href="/users/{{$user->id}}/cancel">フォロー解除</a>
       @else
-        <a href="#">フォローする</a>
+        <a href="/users/{{$user->id}}/add">フォローする</a>
       @endif
     </div>
   @endforeach
