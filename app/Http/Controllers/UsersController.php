@@ -22,16 +22,7 @@ class UsersController extends Controller
         return view('users.search', compact('users'));
     }
 
-    public function add($id){
-        Follow::create(['following_id' => Auth::user()->id, 'followed_id' => $id]);
-        return redirect('/search');
-    }
 
-    public function cancel($id){
-        $follow = Follow::where('following_id', Auth::user()->id)->where('followed_id', $id)->first();
-        Follow::where('id', $follow->id)->delete();
-        return redirect('/search');
-    }
 
     // public function user()
     // {

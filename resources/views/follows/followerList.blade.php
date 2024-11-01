@@ -2,7 +2,9 @@
 
   <div>
   @foreach($followers as $follower)
-  <img src="{{ asset('images/' . $follower->icon_image ) }}">
+  @if ($follower->relation() == 2)
+  <a href="#"><img src="{{ asset('images/' . $follower->icon_image ) }}"></a>
+  @endif
   @endforeach
   </div>
 
