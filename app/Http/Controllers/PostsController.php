@@ -42,10 +42,4 @@ class PostsController extends Controller
         ]);
         return redirect('/top');
     }
-
-    public function show(){
-        $following_id = Auth::user()->follows()->pluck('followed_id');
-        $posts = Post::with('user')->whereIn('followed_id', $following_id)->get();
-        return view('follows.followList', compact('posts'));
-    }
 }

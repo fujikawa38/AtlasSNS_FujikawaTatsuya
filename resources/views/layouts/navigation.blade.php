@@ -7,7 +7,7 @@
                 </div>
                 <ul>
                     <li><a href="top">HOME</a></li>
-                    <li><a href="profile">プロフィール編集</a></li>
+                    <li><a href="/profile/{{Auth::id()}}">プロフィール編集</a></li>
                     <li><a href="logout">ログアウト</a></li>
                 </ul>
             </div>

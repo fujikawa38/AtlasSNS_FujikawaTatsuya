@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
 use App\Models\Follow;
+use App\Models\Post;
 
 class FollowsController extends Controller
 {
@@ -19,12 +20,20 @@ class FollowsController extends Controller
 
     public function followList(){
         $followings = User::where('id', '!=', Auth::user()->id)->get();
-        return view('follows.followList', compact('followings'));
+
+        $following_id = Auth::user()->follows()->pluck('followed_id');
+        $posts = Post::with('user')->whereIn('user_id', $following_id)->latest('updated_at')->get();
+
+        return view('follows.followList', compact('followings', 'posts'));
     }
 
     public function followerList(){
         $followers = User::where('id', '!=', Auth::user()->id)->get();
-        return view('follows.followerList', compact('followers'));
+
+        $followed_id = Follow::where('followed_id', Auth::user()->id)->pluck('following_id');
+        $posts = Post::with('user')->whereIn('user_id', $followed_id)->latest('updated_at')->get();
+
+        return view('follows.followerList', compact('followers', 'posts'));
     }
 
     public function add($id){
@@ -36,6 +45,12 @@ class FollowsController extends Controller
         $follow = Follow::where('following_id', Auth::user()->id)->where('followed_id', $id)->first();
         Follow::where('id', $follow->id)->delete();
         return redirect('/search');
+    }
+
+    public function followCounts(){
+        $follows = Follow::where('following_id', Auth::id())->get();
+        $followers = Follow::where('followed_id', Auth::id())->get();
+        return view('layouts.login', compact('follows', 'followers'));
     }
 
 
