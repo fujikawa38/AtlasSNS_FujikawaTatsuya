@@ -1,12 +1,14 @@
 <x-login-layout>
 
-
 <div class="">
-  @csrf
-  <input type="text" name="keyword" class="form" placeholder="ユーザー名">
-  <button type="button">
-    <img src="{{ asset('images/search.png') }}" class="">
-  </button>
+  <form action="/search">
+    @csrf
+    <input type="text" name="keyword" class="form" placeholder="ユーザー名">
+    <input type="image" src="{{ asset('images/search.png') }}" class="btn" alt="検索">
+  </form>
+  @if (!empty($keyword))
+    <p>検索ワード：{{ $keyword }}</p>
+  @endif
 </div>
 
 <div class="">

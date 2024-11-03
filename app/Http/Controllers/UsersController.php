@@ -17,9 +17,16 @@ class UsersController extends Controller
         $this->middleware('auth');
     }
 
-    public function search(){
-        $users = User::where('id', '!=', Auth::user()->id )->get();
-        return view('users.search', compact('users'));
+    public function search(Request $request){   //get送信でも$request利用可能？
+        $keyword = $request->input('keyword');
+
+        if(!empty($keyword)){
+            $users = User::where('id', '!=', Auth::user()->id)->where('username', 'like', '%'.$keyword.'%')->get();
+        } else {
+            $users = User::where('id', '!=', Auth::user()->id )->get();
+        }
+
+        return view('users.search', compact('keyword', 'users'));
     }
 
 
