@@ -13,7 +13,7 @@
 
   <div>
     @foreach($posts as $post)
-      <a href="#"><img src="{{ asset('images/' . $post->user->icon_image) }}"></a>
+      <a href="/profile/{{$post->user->id}}"><img src="{{ asset('images/' . $post->user->icon_image) }}"></a>
       <p>{{ $post->user->username }}</p>
       <p>{{ $post->updated_at }}</p>
       <p>{{ $post->post }}</p>

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 use App\Models\User;
+use App\Models\Post;
 
 class ProfileController extends Controller
 {
@@ -20,11 +21,13 @@ class ProfileController extends Controller
     }
 
     public function profile(){
-        return view('profiles.profile');
+        $profiles = User::where('id', Auth::id())->get();
+        return view('profiles.profile', compact('profiles'));
     }
 
     public function viewProfile($id){
         $profiles = User::where('id', $id)->get();
-        return view('profiles.profile', compact('profiles'));
+        $posts = Post::with('user')->where('user_id', $id)->latest('updated_at')->get();
+        return view('profiles.profile', compact('profiles', 'posts'));
     }
 }
