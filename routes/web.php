@@ -22,12 +22,10 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
-Route::get('/layouts/login', [FollowController::class, 'followCounts']);
-
 Route::get('top', [PostsController::class, 'index'])->name('top');
-Route::post('/post/create', [PostsController::class, 'post']);
+Route::post('/post/create', [PostsController::class, 'post'])->name('post.create');
 Route::get('/posts/{id}/delete', [PostsController::class, 'postDelete']);
-Route::post('/post/update', [PostsController::class, 'postUpdate']);
+Route::post('/post/update', [PostsController::class, 'postUpdate'])->name('post.update');
 
 Route::get('profile', [ProfileController::class, 'profile'])->name('profile');
 Route::get('/profile/{id}', [ProfileController::class, 'viewProfile']);

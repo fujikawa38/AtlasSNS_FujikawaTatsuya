@@ -38,19 +38,13 @@ class FollowsController extends Controller
 
     public function add($id){
         Follow::create(['following_id' => Auth::user()->id, 'followed_id' => $id]);
-        return redirect('/search');
+        return back();
     }
 
     public function cancel($id){
         $follow = Follow::where('following_id', Auth::user()->id)->where('followed_id', $id)->first();
         Follow::where('id', $follow->id)->delete();
-        return redirect('/search');
-    }
-
-    public function followCounts(){
-        $follows = Follow::where('following_id', Auth::id())->get();
-        $followers = Follow::where('followed_id', Auth::id())->get();
-        return view('layouts.login', compact('follows', 'followers'));
+        return back();
     }
 
 
