@@ -5,6 +5,93 @@ html{
 }
 
 body{
-    height: 100%;
-    background: #186AC9;
+    padding: 100px;
+    height: 100vh;
+    background-color: #ff0;
+    background-image: linear-gradient(0deg, #ffd700 0%, #1e90ff 60%);
+}
+
+header{
+    text-align: center;
+}
+
+.title_logo{
+    width: 150px;
+}
+
+.title{
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#container{
+    background: rgba(0,0,0,0.2);
+    width: 320px;
+    padding: 20px 0;
+    margin: 40px auto;
+    border-radius: 20px;
+}
+
+.message{
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+}
+
+.form_content{
+    padding: 10px 30px;
+}
+
+.mb-3{
+    margin: 20px 0;
+}
+
+.form-label{
+    color: #fff;
+}
+
+.form_button{
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.login_text{
+    text-align: center;
+    color: #fff;
+}
+
+.login_link{
+    color: #fff;
+    text-decoration: underline;
+}
+
+.login_link:hover{
+    color: #aaa;
+}
+
+.added{
+    padding: 0 40px;
+}
+
+.added_content{
+    margin: 20px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.added_name{
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.added_text{
+    margin: 0 0 0 10px;
+    text-align: left;
+}
+
+.login_button{
+    text-align: center;
+    margin-bottom: 20px;
 }

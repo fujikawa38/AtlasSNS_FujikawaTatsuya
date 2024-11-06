@@ -2,20 +2,21 @@
 
 @foreach($profiles as $profile)
 @if ($profile->id == Auth::id())
-  {{ Form::open(['url' => '/profile/update', 'enctype' => 'multipart/form-data']) }}
+  {{ Form::open(['route' => 'profile.update', 'enctype' => 'multipart/form-data']) }}
   <div>
     {{ Form::label('ユーザー名') }}
     {{ Form::input('text', 'username', $profile->username, ['required', 'class' => '']) }}
     {{ Form::label('メールアドレス') }}
     {{ Form::input('email', 'email', $profile->email, ['required', 'class' => '']) }}
     {{ Form::label('パスワード') }}
-    {{ Form::input('password', 'password', '', ['required', 'class' => '']) }}
+    {{ Form::password('newPassword', ['required', 'class' => '']) }}
     {{ Form::label('パスワード確認') }}
-    {{ Form::input('password', 'password_confirmation', '', ['required', 'class' => '']) }}
+    {{ Form::password('newPassword_confirmation', ['required', 'class' => '']) }}
     {{ Form::label('自己紹介') }}
     {{ Form::input('text', 'bio', $profile->bio, ['class' => '']) }}
     {{ Form::label('アイコン画像') }}
-    {{ Form::input('file', 'icon_image', '', ['class' => '']) }}
+    {{ Form::input('file', 'iconImage', '', ['class' => '']) }}
+    {{ Form::hidden('id', $profile->id) }}
   </div>
   <button type="submit" class="btn">更新</button>
 @endif
@@ -43,7 +44,7 @@
   @foreach($posts as $post)
   <div>
     <div>
-      <img src="{{ asset('images/' . $post->user->icon_image) }}">
+      <img src="{{ asset('storage/' . $post->user->icon_image) }}">
       <p>{{ $post->user->username }}</p>
       <p>{{ $post->user->updated_at }}</p>
       <p>{{ $post->post }}</p>

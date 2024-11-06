@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class PostUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,7 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'post' => 'required|min:1|max:150',
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'post.required' => '入力してください'
+            'postUpdate' => 'required|min:1|max:150',
         ];
     }
 }

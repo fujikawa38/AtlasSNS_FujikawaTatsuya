@@ -16,8 +16,20 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['string', 'max:255'],
-            'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+            'username' => ['required', 'min:2', 'max:12'],
+            'email' => ['email', 'min:5', 'max:40', Rule::unique(User::class)->ignore($this->user()->id)],
+            'newPassword' => ['required', 'alpha_num', 'min:8', 'max:20', 'confirmed'],
+            'bio' => ['max:150'],
+            'iconImage' => ['image', 'mimes:jpg,png,bmp,gif,svg'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'username.required' => '名前を入力してください',
+            'email.min' => 'メールアドレスは5文字以上、40文字以内です',
+            'email.unique' => 'メールアドレスはすでに使用中です',
         ];
     }
 }

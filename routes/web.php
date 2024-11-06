@@ -29,6 +29,7 @@ Route::post('/post/update', [PostsController::class, 'postUpdate'])->name('post.
 
 Route::get('profile', [ProfileController::class, 'profile'])->name('profile');
 Route::get('/profile/{id}', [ProfileController::class, 'viewProfile']);
+Route::post('/profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
 
 Route::get('search', [UsersController::class, 'search'])->name('search');   //ページ遷移できないためindex→searchに変更
 ROUTE::get('/users/{id}/add', [FollowsController::class, 'add']);

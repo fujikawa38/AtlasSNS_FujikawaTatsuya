@@ -24,8 +24,8 @@
     </head>
     <body>
         <header>
-            <h1><img src="images/atlas.png"></h1>
-            <p>Social Network Service</p>
+            <h1><img src="images/atlas.png" class="title_logo"></h1>
+            <h2 class="title">Social Network Service</h2>
         </header>
         <div id="container">
             {{ $slot }}

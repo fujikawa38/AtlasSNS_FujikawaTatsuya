@@ -3,7 +3,7 @@
             <div id="">
                 <div id="">
                     <p>{{ Auth::user() -> username }}さん</p>
-                    <img src= "{{ asset('images/' . Auth::user() -> icon_image) }}" class="">
+                    <img src= "{{ asset('storage/' . Auth::user() -> icon_image) }}" class="">
                 </div>
                 <ul>
                     <li><a href="{{ route('top') }}">HOME</a></li>
