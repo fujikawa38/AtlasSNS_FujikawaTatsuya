@@ -25,19 +25,19 @@
 </head>
 
 <body>
-  <header>
-    @include('layouts.navigation')
-  </header>
+    <header>
+        @include('layouts.navigation')
+    </header>
 
-  @if($errors->any())
-  <div class="alert alert-danger">
-    <ul>
-    @foreach($errors->all() as $error)
-      <li>{{ $error }}</li>
-    @endforeach
-    </ul>
-  </div>
-  @endif
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+            </ul>
+        </div>
+    @endif
 
   <!-- Page Content -->
   <div id="row">
@@ -46,26 +46,32 @@
     </div>
     <div id="side-bar">
       <div id="confirm">
-        <p>{{ Auth::user() -> username }}さんの</p>
-        <div>
-          <p>フォロー数</p>
-          <p>{{ count($countFollow) }}名</p>
+        <p class="user_name">{{ Auth::user() -> username }}さんの</p>
+        <div class="follow_count">
+          <p class="follow_text">フォロー数</p>
+          <p class="follow_number">{{ count($countFollow) }}名</p>
         </div>
-        <p class="btn"><a href="{{ route('follow-list') }}">フォローリスト</a></p>
-        <div>
-          <p>フォロワー数</p>
-          <p>{{ count($countFollower) }}名</p>
+        <div class="follow_button">
+          <a href="{{ route('follow-list') }}"  class="btn btn-primary">フォローリスト</a>
         </div>
-        <p class="btn"><a href="{{ route('follower-list') }}">フォロワーリスト</a></p>
+        <div class="follow_count">
+          <p class="follow_text">フォロワー数</p>
+          <p class="follow_number">{{ count($countFollower) }}名</p>
+        </div>
+        <div class="follow_button">
+          <a href="{{ route('follower-list') }}" class="btn btn-primary">フォロワーリスト</a>
+        </div>
       </div>
-      <p class="btn"><a href="{{ route('search') }}">ユーザー検索</a></p>
+      <div class="search_button">
+        <a href="{{ route('search') }}"  class="btn btn-primary">ユーザー検索</a>
+      </div>
     </div>
   </div>
   <footer>
   </footer>
   <script src="{{ asset('js/app.js') }}"></script>
-  <script src="JavaScriptファイルのURL"></script>
-  <script src="JavaScriptファイルのURL"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
 </html>

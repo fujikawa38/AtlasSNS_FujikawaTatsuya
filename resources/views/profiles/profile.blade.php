@@ -35,9 +35,9 @@
     </div>
     <div>
       @if ($profile->relation() == 1 || $profile->relation() == 3)
-        <a href="/users/{{$profile->id}}/cancel">フォロー解除</a>
+        <a href="/users/{{$profile->id}}/cancel" class="btn btn-danger">フォロー解除</a>
       @else
-        <a href="/users/{{$profile->id}}/add">フォローする</a>
+        <a href="/users/{{$profile->id}}/add" class="btn btn-info">フォローする</a>
       @endif
     </div>
   </div>
