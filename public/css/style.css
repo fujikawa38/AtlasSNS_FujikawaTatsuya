@@ -10,11 +10,12 @@ header{
 
 /* main content */
 #row{
+    clear: both;
     display: flex;
     flex-flow: row wrap;
+    height: 100vh;
 }
 #container{
-    clear: both;
     flex: 0 0 80%;
 }
 #side-bar{
@@ -68,8 +69,8 @@ h1{
     float: right;
     margin: 20px 20px 0 0;
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: end;
+    /* flex-wrap: nowrap;
+    justify-content: end; */
     align-items: center;
 }
 
@@ -137,7 +138,7 @@ img{
 
 #confirm{
     padding-bottom: 30px;
-    border-bottom: solid 1px #727272;
+    border-bottom: solid 1px #bbb;
 }
 
 #confirm .follow_button{
@@ -153,4 +154,145 @@ img{
 .search_button{
     text-align: center;
     margin-top: 30px;
+}
+
+
+/* index.blade.pnp */
+.my_post{
+    display: flex;
+    /* flex-wrap: nowrap; */
+    padding: 20px 30px;
+    border-bottom: solid 3px #bbb;
+}
+
+.post_image{
+    flex-grow: 1;
+    text-align: right;
+}
+
+.post_form{
+    display: flex;
+    /* flex-wrap: nowrap; */
+    align-items: end;
+    flex-grow: 10;
+    margin-top: 5px;
+}
+
+.post{
+    border: none;
+    background: #f5f8fa;
+    width: 70%;
+    height: 80px;
+    resize: none;
+    margin: 0 10px;
+}
+
+.post::placeholder{
+    color: #bbb;
+}
+
+.post_button{
+    width: 40px;
+}
+
+.user_post{
+    padding: 10px 20px 10px 100px;
+    border-bottom: solid 1px #bbb;
+}
+
+.user_post ul li{
+    list-style: none;
+    display: flex;
+}
+
+.post_content{
+    width: 100%;
+    padding: 0 10px;
+}
+
+.post_content div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.post_main{
+    width: 80%;
+}
+
+.post_text{
+    margin: 0;
+    font-size: 12px;
+}
+
+.edit_button{
+    text-align: right;
+}
+
+.button_image{
+    display: inline-block;
+}
+
+
+/* モーダル */
+.modal{
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal_bg{
+    background: rgba(0, 0, 0, 0.2);
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    color: #666;
+}
+
+.modal_content{
+    background: #fff;
+    left: 50%;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    border-radius: 10px;
+}
+
+.modal_inner{
+    text-align: center;
+}
+
+.modal_post{
+    width: 95%;
+    height: 180px;
+    resize: none;
+    margin: 20px 0;
+}
+
+.modal_button{
+    width: 50px;
+}
+
+
+/* followList.blade.php */
+.follow_list{
+    display: flex;
+    /* align-items: top; */
+    padding: 20px;
+    border-bottom: solid 3px #bbb;
+}
+
+h2{
+    font-size: 20px;
+    margin: 5px 0 0 0;
+    flex-grow: 2;
+}
+
+.follow_icon{
+    width: 70%;
+    flex-grow: 7;
 }

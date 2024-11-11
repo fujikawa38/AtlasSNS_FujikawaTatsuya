@@ -40,38 +40,38 @@
     @endif
 
   <!-- Page Content -->
-  <div id="row">
-    <div id="container">
-      {{ $slot }}
+    <div id="row">
+        <div id="container">
+            {{ $slot }}
+        </div>
+        <div id="side-bar">
+            <div id="confirm">
+                <p class="user_name">{{ Auth::user() -> username }}さんの</p>
+                <div class="follow_count">
+                    <p class="follow_text">フォロー数</p>
+                    <p class="follow_number">{{ count($countFollow) }}名</p>
+                </div>
+                <div class="follow_button">
+                    <a href="{{ route('follow-list') }}"  class="btn btn-primary">フォローリスト</a>
+                </div>
+                <div class="follow_count">
+                    <p class="follow_text">フォロワー数</p>
+                    <p class="follow_number">{{ count($countFollower) }}名</p>
+                </div>
+                <div class="follow_button">
+                    <a href="{{ route('follower-list') }}" class="btn btn-primary">フォロワーリスト</a>
+                </div>
+            </div>
+            <div class="search_button">
+                <a href="{{ route('search') }}"  class="btn btn-primary">ユーザー検索</a>
+            </div>
+        </div>
     </div>
-    <div id="side-bar">
-      <div id="confirm">
-        <p class="user_name">{{ Auth::user() -> username }}さんの</p>
-        <div class="follow_count">
-          <p class="follow_text">フォロー数</p>
-          <p class="follow_number">{{ count($countFollow) }}名</p>
-        </div>
-        <div class="follow_button">
-          <a href="{{ route('follow-list') }}"  class="btn btn-primary">フォローリスト</a>
-        </div>
-        <div class="follow_count">
-          <p class="follow_text">フォロワー数</p>
-          <p class="follow_number">{{ count($countFollower) }}名</p>
-        </div>
-        <div class="follow_button">
-          <a href="{{ route('follower-list') }}" class="btn btn-primary">フォロワーリスト</a>
-        </div>
-      </div>
-      <div class="search_button">
-        <a href="{{ route('search') }}"  class="btn btn-primary">ユーザー検索</a>
-      </div>
-    </div>
-  </div>
-  <footer>
-  </footer>
-  <script src="{{ asset('js/app.js') }}"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="{{ asset('js/script.js') }}"></script>
+    <footer>
+    </footer>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
 </html>

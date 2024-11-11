@@ -27,7 +27,7 @@ class PostsController extends Controller
 
     public function post(PostRequest $request){
         $post = $request->input('post');
-        Post::create(['user_id' => Auth::user()->id, 'post' => $post]);
+        Post::create(['user_id' => Auth::id(), 'post' => $post,]);
         return redirect('/top');
     }
 
