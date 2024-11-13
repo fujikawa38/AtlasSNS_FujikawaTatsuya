@@ -25,6 +25,12 @@ header{
 
 
 /* navigation.blade.php */
+#head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 h1{
     margin: 0;
 }
@@ -63,11 +69,11 @@ h1{
     transform: translate(-50%, -10%) rotate(-45deg);
 }
 
-.menu{
+#menu{
     /* position: absolute; */
     /* width: 40%; */
-    float: right;
-    margin: 20px 20px 0 0;
+    /* float: right; */
+    margin-right: 20px;
     display: flex;
     /* flex-wrap: nowrap;
     justify-content: end; */
@@ -89,10 +95,6 @@ ul.accordion_content{
     border: solid 1px #000080;
     text-align: center;
 }
-
-/* ul.accordion_content .accordion_lists{
-
-} */
 
 ul.accordion_content .accordion_lists a{
     padding: 20px 0;
@@ -141,17 +143,17 @@ img{
     border-bottom: solid 1px #bbb;
 }
 
-#confirm .follow_button{
+#confirm .to_follow{
     text-align: right;
     margin-right: 10px;
 }
 
-#confirm .follow_button a{
+#confirm .to_follow a{
     font-size: 10px;
     width: 120px;
 }
 
-.search_button{
+.to_search{
     text-align: center;
     margin-top: 30px;
 }
@@ -196,7 +198,7 @@ img{
 }
 
 .user_post{
-    padding: 10px 20px 10px 100px;
+    padding: 20px 20px 10px 100px;
     border-bottom: solid 1px #bbb;
 }
 
@@ -288,11 +290,196 @@ img{
 
 h2{
     font-size: 20px;
-    margin: 5px 0 0 0;
-    flex-grow: 2;
+    margin: 10px 0 0 50px;
+}
+
+.follow_users{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 50px 0 30px;
 }
 
 .follow_icon{
-    width: 70%;
-    flex-grow: 7;
+    margin: 3px;
 }
+
+
+/* search.blade.php */
+.search_block{
+    display: flex;
+    align-items: center;
+    padding: 30px 0 30px 60px;
+    border-bottom: solid 3px #bbb;
+}
+
+.search_form{
+    display: flex;
+    align-items: center;
+}
+
+.search_window{
+    height: 45px;
+    width: 250px;
+    border: solid 2px #bbb;
+    border-radius: 5px;
+}
+
+.search_window::placeholder{
+    padding-left: 5px;
+}
+
+.search_button{
+    margin: 0 0 0 20px;
+    width: 40px;
+}
+
+.search_text{
+    margin: 0 0 0 200px;
+    font-size: 20px;
+}
+
+.search_user{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.search_image{
+    margin-left: 230px;
+}
+
+.search_name{
+    margin: 0 0 0 30px;
+    width: 30%;
+    font-size: 23px;
+    color: #000;
+}
+
+
+/* profile.blade.php */
+.profile_content{
+    display: flex;
+    /* width: 100%; */
+    padding: 50px;
+    justify-content: center;
+}
+
+.profile_image{
+    flex-grow: 2;
+    text-align: right;
+    /* margin: 0 0 0 180px; */
+}
+
+.profile_form{
+    flex-grow: 5;
+}
+
+.profile_item{
+    /* width: 100%; */
+    margin: 50px 30px;
+    display: flex;
+    align-items: top;
+    text-align: left;
+    justify-content: space-between;
+}
+
+.profile_item:nth-of-type(1){
+    margin-top: 0;
+}
+
+.profile_label{
+    font-size: 18px;
+    margin-top: 5px;
+    /* flex-grow: 3; */
+    /* width: 100%; */
+}
+
+.profile_window{
+    /* flex-grow: 5; */
+    background: #eee;
+    border: solid 1px #aaa;
+    width: 50%;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 18px;
+    margin-right: 5%;
+}
+
+.upload_button{
+    position: relative;
+    width: 50%;
+    height: 100px;
+    background: #eee;
+    border: solid 1px #aaa;
+    margin-right: 5%;
+}
+
+.upload_button::file-selector-button{
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    border: none;
+    background: #fff;
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #bbb;
+}
+
+.upload_button::placeholder{
+    position: absolute;
+    top: 80%;
+}
+
+.profile_submit{
+    text-align: center;
+}
+
+.profile_others{
+    padding: 30px;
+    border-bottom: solid 3px #bbb;
+    display: flex;
+}
+
+.others_icon{
+    flex-grow: 1;
+    text-align: right;
+    margin-left: 30px;
+}
+
+.others_block{
+    flex-grow: 10;
+}
+
+.others_follow{
+    flex-grow: 1;
+    margin-top: auto;
+    margin-left: 20px;
+}
+
+.others_content{
+    display: flex;
+    /* justify-content: left; */
+    margin-left: 20px;
+}
+
+.others_item{
+    font-size: 20px;
+    width: 10%;
+    flex-grow: 1;
+    /* text-align: justify;
+    text-align-last: justify; */
+}
+
+.others_text{
+    font-size: 20px;
+    margin-left: 50px;
+    width: 50%;
+    flex-grow: 8;
+    /* text-align: left;
+    text-align-last: left; */
+}
+/*
+.others_follow{
+    display: flex;
+    justify-content: space-between;
+} */

@@ -1,7 +1,9 @@
         <div id="head">
-            <a href="{{ route('top') }}"><img src="{{ asset('images/atlas.png') }}"  class="logo"></a>
-            <nav class="menu">
-                <div id="">
+            <h1>
+                <a href="{{ route('top') }}"><img src="{{ asset('images/atlas.png') }}"  class="logo"></a>
+            </h1>
+            <nav id="menu">
+                <div>
                     <p class="nav_text">{{ Auth::user() -> username }}　さん</p>
                 </div>
                 <div class="accordion_menu">

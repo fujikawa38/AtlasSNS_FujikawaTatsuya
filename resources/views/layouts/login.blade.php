@@ -51,18 +51,18 @@
                     <p class="follow_text">フォロー数</p>
                     <p class="follow_number">{{ count($countFollow) }}名</p>
                 </div>
-                <div class="follow_button">
+                <div class="to_follow">
                     <a href="{{ route('follow-list') }}"  class="btn btn-primary">フォローリスト</a>
                 </div>
                 <div class="follow_count">
                     <p class="follow_text">フォロワー数</p>
                     <p class="follow_number">{{ count($countFollower) }}名</p>
                 </div>
-                <div class="follow_button">
+                <div class="to_follow">
                     <a href="{{ route('follower-list') }}" class="btn btn-primary">フォロワーリスト</a>
                 </div>
             </div>
-            <div class="search_button">
+            <div class="to_search">
                 <a href="{{ route('search') }}"  class="btn btn-primary">ユーザー検索</a>
             </div>
         </div>
