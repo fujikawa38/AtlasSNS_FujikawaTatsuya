@@ -28,16 +28,4 @@ class UsersController extends Controller
 
         return view('users.search', compact('keyword', 'users'));
     }
-
-
-
-    // public function user()
-    // {
-    //     $users = User::get();
-    //     return view('users.search', ['users'=>$users]);
-    //     //$follows = Follow::get();
-    //     //return view('users.search', compact('users'));
-    //     // return view('users.search')->with(['users' => $users, 'follows' => $follows,]);
-    //     //return view('users.search')->with(['users', 'follows']);
-    // }
 }

@@ -27,11 +27,4 @@ class PostRequest extends FormRequest
             'post' => 'required|min:1|max:150',
         ];
     }
-
-    public function messages()
-    {
-        return [
-            'post.required' => '入力してください'
-        ];
-    }
 }

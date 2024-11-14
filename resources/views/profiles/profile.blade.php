@@ -2,9 +2,9 @@
 
 @foreach($profiles as $profile)
 @if ($profile->id == Auth::id())
-<div class="profile_content">
+<article id="profileContent">
     <div class="profile_image">
-        <img src="{{ asset('storage/' . $profile->icon_image) }}">
+        <img src="{{ asset('storage/' . $profile->icon_image) }}" alt="アイコン画像">
     </div>
     {{ Form::open(['route' => 'profile.update', 'enctype' => 'multipart/form-data', 'class' => 'profile_form']) }}
         <div class="profile_item">
@@ -36,16 +36,16 @@
             <button type="submit" class="btn btn-danger btn-lg">更新</button>
         </div>
     {{ Form::close() }}
-</div>
+</article>
 @endif
 @endforeach
 
 
 @foreach($profiles as $profile)   <!-- 表示はされるけどもっと簡単な記述ありそう -->
 @if ($profile->id != Auth::id())
-<div class="profile_others">
+<article id="profileOthers">
     <div class="others_icon">
-        <img src="{{ asset('storage/' . $profile->icon_image) }}">
+        <img src="{{ asset('storage/' . $profile->icon_image) }}" alt="アイコン画像">
     </div>
     <div class="others_block">
         <div class="others_content">
@@ -60,36 +60,34 @@
     <div class="others_follow">
     @if ($profile->relation() == 1 || $profile->relation() == 3)
         <div>
-            <a href="/users/{{$profile->id}}/cancel" class="btn btn-danger">フォロー解除</a>
+            <a href="{{ route('cancel', ['id' => $profile->id]) }}" class="btn btn-danger">フォロー解除</a>
         </div>
     @else
         <div>
-            <a href="/users/{{$profile->id}}/add" class="btn btn-info">フォローする</a>
+            <a href="{{ route('add', ['id' => $profile->id]) }}" class="btn btn-info">フォローする</a>
         </div>
     @endif
     </div>
-</div>
+</article>
 @foreach($posts as $post)
+<article>
     <div class="user_post">
-        <ul>
-            <li class="post_block">
+        <ul class="post_block">
+            <li>
+                <img src="{{ asset('storage/' . $post->user->icon_image) }}" alt="アイコン画像">
+            </li>
+            <li class="post_content">
                 <div>
-                    <a href="/profile/{{$post->user->id}}">
-                        <img src="{{ asset('storage/' . $post->user->icon_image) }}">
-                    </a>
+                    <p class="post_text">{{ $post->user->username }}</p>
+                    <p class="post_text">{{ $post->updated_at }}</p>
                 </div>
-                <div class="post_content">
-                    <div>
-                        <p class="post_text">{{ $post->user->username }}</p>
-                        <p class="post_text">{{ $post->updated_at }}</p>
-                    </div>
-                    <div class="post_main">
-                        <p class="post_text">{{ $post->post }}</p>
-                    </div>
+                <div class="post_main">
+                    <p class="post_text">{{ $post->post }}</p>
                 </div>
             </li>
         </ul>
     </div>
+</article>
 @endforeach
 @endif
 @endforeach

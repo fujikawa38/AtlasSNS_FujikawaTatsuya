@@ -2,7 +2,7 @@
     <!-- 適切なURLを入力してください -->
 {!! Form::open(['route' => 'register.store']) !!}
 
-    <h2 class="message">新規ユーザー登録</h2>
+    <h3 class="message">新規ユーザー登録</h3>
     <div class="form_content">
         <div class="mb-3">
             {{ Form::label('username', 'ユーザー名', ['class' => 'form-label']) }}

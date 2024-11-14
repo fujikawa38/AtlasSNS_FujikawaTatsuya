@@ -1,32 +1,30 @@
 <x-login-layout>
 
 
-<div class="my_post">
+<article id="myPost">
     <div class="post_image">
-        <img src="{{ asset('storage/' . Auth::user()->icon_image) }}">
+        <img src="{{ asset('storage/' . Auth::user()->icon_image) }}" alt="アイコン画像">
     </div>
     {{ Form::open(['route' => 'post.create', 'class' => 'post_form']) }}
         {{ Form::textarea('post', null, ['class' => 'post', 'placeholder' => '投稿を入力してください。']) }}
         <input type="image" src="images/post.png" class="post_button" alt="投稿">
     {{ Form::close() }}
-</div>
+</article>
 
-<div>
+<article>
     @foreach ($posts as $post)
     <div class="user_post">
-        <ul>
-            <li class="post_block">
+        <ul class="post_block">
+            <li>
+                <img src="{{ asset('storage/' . $post->user->icon_image) }}" alt="アイコン画像">
+            </li>
+            <li class="post_content">
                 <div>
-                    <img src="{{ asset('storage/' . $post->user->icon_image) }}">
+                    <p class="post_text">{{ $post->user->username }}</p>
+                    <p class="post_text">{{ $post->updated_at }}</p>
                 </div>
-                <div class="post_content">
-                    <div>
-                        <p class="post_text">{{ $post->user->username }}</p>
-                        <p class="post_text">{{ $post->updated_at }}</p>
-                    </div>
-                    <div class="post_main">
-                        <p class="post_text">{{ $post->post }}</p>
-                    </div>
+                <div class="post_main">
+                    <p class="post_text">{{ $post->post }}</p>
                 </div>
             </li>
         </ul>
@@ -35,14 +33,14 @@
             <a href="#" class="modal_open button_image" post="{{ $post->post }}" post_id="{{ $post->id }}">
                 <img src="images/edit.png" class="" alt="編集">
             </a>
-            <a href="/posts/{{$post->id}}/delete" class="button_image" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')">
+            <a href="{{ route('post.delete', ['id' => $post->id]) }}" class="button_image" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')">
                 <img src="images/trash.png" class="trash" alt="削除">
             </a>
         </div>
         @endif
     </div>
     @endforeach
-    <div class="modal js_modal" id="modal_update">
+    <div class="modal js_modal" id="modalUpdate">
         <div class="modal_bg modal_close"></div>
         <div class="modal_content">
             {{ Form::open(['route' => 'post.update', 'class' => 'modal_inner']) }}
@@ -54,6 +52,6 @@
             {{ Form::close() }}
         </div>
     </div>
-</div>
+</article>
 
 </x-login-layout>

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 html{
-    height: 100%;
+    height: 100vh;
 }
 
 body{
@@ -15,6 +15,17 @@ header{
     text-align: center;
 }
 
+.btn-danger {
+    background-color: #dc143c;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #e6274d;
+}
+
+
+/* logout.blade.php */
 .title_logo{
     width: 150px;
 }
@@ -33,6 +44,8 @@ header{
     border-radius: 20px;
 }
 
+
+/* register.blade.php */
 .message{
     font-size: 18px;
     color: #fff;
@@ -70,7 +83,9 @@ header{
     color: #aaa;
 }
 
-.added{
+
+/* added.blade.php */
+#added{
     padding: 0 40px;
 }
 

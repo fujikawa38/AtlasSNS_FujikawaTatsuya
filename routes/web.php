@@ -23,27 +23,32 @@ use Illuminate\Support\Facades\Route;
 require __DIR__ . '/auth.php';
 
 Route::get('top', [PostsController::class, 'index'])->name('top');
-Route::post('/post/create', [PostsController::class, 'post'])->name('post.create');
-Route::get('/posts/{id}/delete', [PostsController::class, 'postDelete']);
-Route::post('/post/update', [PostsController::class, 'postUpdate'])->name('post.update');
 
-Route::get('profile', [ProfileController::class, 'profile'])->name('profile');
-Route::get('/profile/{id}', [ProfileController::class, 'viewProfile']);
-Route::post('/profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
+Route::group(['prefix' => '/post', 'as' => 'post.'], function() {
+    Route::post('create', [PostsController::class, 'post'])->name('create');
+    Route::get('{id}/delete', [PostsController::class, 'postDelete'])->name('delete');
+    Route::post('update', [PostsController::class, 'postUpdate'])->name('update');
+});
+
+Route::group(['prefix' => '/profile', 'as' => 'profile'], function() {
+    Route::get('/', [ProfileController::class, 'profile'])->name('');
+    Route::get('{id}', [ProfileController::class, 'viewProfile'])->name('.other');
+    Route::post('update', [ProfileController::class, 'updateProfile'])->name('.update');
+});
 
 Route::get('search', [UsersController::class, 'search'])->name('search');   //ページ遷移できないためindex→searchに変更
-ROUTE::get('/users/{id}/add', [FollowsController::class, 'add']);
-ROUTE::get('/users/{id}/cancel', [FollowsController::class, 'cancel']);
-// Route::get('search', [UsersController::class, 'user']);
-// Route::get('search', [UsersController::class, 'follows']);
+
+Route::group(['prefix' => '/users'], function() {
+    ROUTE::get('{id}/add', [FollowsController::class, 'add'])->name('add');
+    ROUTE::get('{id}/cancel', [FollowsController::class, 'cancel'])->name('cancel');
+});
 
 Route::get('follow-list', [FollowsController::class, 'followList'])->name('follow-list');
-// Route::get('follow-list', [FollowsController::class, 'following']);
 
 Route::get('follower-list', [FollowsController::class, 'followerList'])->name('follower-list');
 
 Route::get('logout', [AuthenticatedSessionController::class, 'logout'])->name('logout');   //logoutメソッドと接続
 
 ROUTE::get('login', function() {
-  return view('auth.login');
+    return view('auth.login');
 }) ->name('login');

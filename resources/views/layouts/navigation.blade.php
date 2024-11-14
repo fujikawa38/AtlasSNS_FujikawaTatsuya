@@ -1,6 +1,6 @@
         <div id="head">
             <h1>
-                <a href="{{ route('top') }}"><img src="{{ asset('images/atlas.png') }}"  class="logo"></a>
+                <a href="{{ route('top') }}"><img src="{{ asset('images/atlas.png') }}"  class="logo" alt="Atlasロゴ"></a>
             </h1>
             <nav id="menu">
                 <div>
@@ -15,7 +15,7 @@
                     </ul>
                 </div>
                 <div>
-                    <img src= "{{ asset('storage/' . Auth::user() -> icon_image) }}" class="">
+                    <img src= "{{ asset('storage/' . Auth::user() -> icon_image) }}">
                 </div>
             </nav>
         </div>

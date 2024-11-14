@@ -1,6 +1,6 @@
 <x-logout-layout>
 
-<div class="added">
+<div id="added">
     <div class="added_content">
         <p class="added_name">{{ $name = session()->get('key') }}さん</p>   <!-- sessionで名前表示 -->
         <p class="added_name">ようこそ！AtlasSNSへ</p>

@@ -23,13 +23,4 @@ class ProfileUpdateRequest extends FormRequest
             'iconImage' => ['image', 'mimes:jpg,png,bmp,gif,svg'],
         ];
     }
-
-    public function messages()
-    {
-        return [
-            'username.required' => '名前を入力してください',
-            'email.min' => 'メールアドレスは5文字以上、40文字以内です',
-            'email.unique' => 'メールアドレスはすでに使用中です',
-        ];
-    }
 }

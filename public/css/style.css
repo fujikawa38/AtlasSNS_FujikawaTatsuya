@@ -1,26 +1,72 @@
 @charset "utf-8";
 html{
+    height: 100vh;
 }
 body{
+    height: 100vh;
 }
+
+
 /* header */
 header{
     background:#186AC9;
 }
 
+
 /* main content */
 #row{
-    clear: both;
     display: flex;
     flex-flow: row wrap;
     height: 100vh;
 }
+
 #container{
     flex: 0 0 80%;
 }
+
 #side-bar{
     flex: 0 0 20%;
     border-left: 1px solid #727272;
+}
+
+img {
+    width: 40px;
+}
+
+
+/* ボタン */
+.btn{
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+}
+
+.btn-danger{
+    background-color: #dc143c;
+}
+
+.btn-danger:hover{
+    background-color: #ed3b5e;
+}
+
+.btn-primary{
+    background-color: #186ac9;
+}
+
+.btn-primary:hover{
+    background-color: #307fda;
+}
+
+.btn-info{
+    background-color: #1e90ff;
+}
+
+.btn-info:hover{
+    background-color: #4ba5fd;
+}
+
+.btn-lg{
+    padding: 5px 60px;
 }
 
 
@@ -40,12 +86,20 @@ h1{
     margin: 20px;
 }
 
+#menu {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
 .nav_text {
     color: #fff;
     font-size: 18px;
     margin: 0;
 }
 
+
+/* アコーディオンメニュー */
 .accordion_arrow{
     position: relative;
     margin: 0;
@@ -58,7 +112,6 @@ h1{
     position: absolute;
     border-top: solid 2px #fff;
     border-right: solid 2px #fff;
-    /* top: 50%; */
     width: 13px;
     height: 13px;
     transform: translate(-50%, -70%) rotate(135deg);
@@ -67,17 +120,6 @@ h1{
 .accordion_arrow.active::before{
     top: 60%;
     transform: translate(-50%, -10%) rotate(-45deg);
-}
-
-#menu{
-    /* position: absolute; */
-    /* width: 40%; */
-    /* float: right; */
-    margin-right: 20px;
-    display: flex;
-    /* flex-wrap: nowrap;
-    justify-content: end; */
-    align-items: center;
 }
 
 .accordion_menu{
@@ -109,12 +151,8 @@ ul.accordion_content .accordion_lists a:hover{
     background: #000080;
 }
 
-img{
-    width: 40px;
-}
 
-
-/* login.blade.php */
+/* サイドバー */
 .follow_count{
     display: flex;
 }
@@ -145,7 +183,7 @@ img{
 
 #confirm .to_follow{
     text-align: right;
-    margin-right: 10px;
+    margin: 10px 15px 10px 0;
 }
 
 #confirm .to_follow a{
@@ -158,11 +196,14 @@ img{
     margin-top: 30px;
 }
 
+.to_search a{
+    width: 150px;
+}
+
 
 /* index.blade.pnp */
-.my_post{
+#myPost{
     display: flex;
-    /* flex-wrap: nowrap; */
     padding: 20px 30px;
     border-bottom: solid 3px #bbb;
 }
@@ -174,7 +215,6 @@ img{
 
 .post_form{
     display: flex;
-    /* flex-wrap: nowrap; */
     align-items: end;
     flex-grow: 10;
     margin-top: 5px;
@@ -197,13 +237,14 @@ img{
     width: 40px;
 }
 
+
+/* 投稿表示 */
 .user_post{
     padding: 20px 20px 10px 100px;
     border-bottom: solid 1px #bbb;
 }
 
-.user_post ul li{
-    list-style: none;
+.post_block{
     display: flex;
 }
 
@@ -283,7 +324,6 @@ img{
 /* followList.blade.php */
 .follow_list{
     display: flex;
-    /* align-items: top; */
     padding: 20px;
     border-bottom: solid 3px #bbb;
 }
@@ -305,7 +345,7 @@ h2{
 
 
 /* search.blade.php */
-.search_block{
+#searchBlock{
     display: flex;
     align-items: center;
     padding: 30px 0 30px 60px;
@@ -338,7 +378,7 @@ h2{
     font-size: 20px;
 }
 
-.search_user{
+#searchUser{
     display: flex;
     align-items: center;
     padding: 20px;
@@ -357,9 +397,8 @@ h2{
 
 
 /* profile.blade.php */
-.profile_content{
+#profileContent{
     display: flex;
-    /* width: 100%; */
     padding: 50px;
     justify-content: center;
 }
@@ -367,7 +406,6 @@ h2{
 .profile_image{
     flex-grow: 2;
     text-align: right;
-    /* margin: 0 0 0 180px; */
 }
 
 .profile_form{
@@ -375,7 +413,6 @@ h2{
 }
 
 .profile_item{
-    /* width: 100%; */
     margin: 50px 30px;
     display: flex;
     align-items: top;
@@ -390,12 +427,9 @@ h2{
 .profile_label{
     font-size: 18px;
     margin-top: 5px;
-    /* flex-grow: 3; */
-    /* width: 100%; */
 }
 
 .profile_window{
-    /* flex-grow: 5; */
     background: #eee;
     border: solid 1px #aaa;
     width: 50%;
@@ -434,7 +468,9 @@ h2{
     text-align: center;
 }
 
-.profile_others{
+
+/* 他ユーザーのプロフィール */
+#profileOthers{
     padding: 30px;
     border-bottom: solid 3px #bbb;
     display: flex;
@@ -458,16 +494,13 @@ h2{
 
 .others_content{
     display: flex;
-    /* justify-content: left; */
     margin-left: 20px;
 }
 
 .others_item{
     font-size: 20px;
     width: 10%;
-    flex-grow: 1;
-    /* text-align: justify;
-    text-align-last: justify; */
+    flex-grow: 2;
 }
 
 .others_text{
@@ -475,11 +508,4 @@ h2{
     margin-left: 50px;
     width: 50%;
     flex-grow: 8;
-    /* text-align: left;
-    text-align-last: left; */
 }
-/*
-.others_follow{
-    display: flex;
-    justify-content: space-between;
-} */

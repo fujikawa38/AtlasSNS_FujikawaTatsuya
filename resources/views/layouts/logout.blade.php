@@ -7,7 +7,7 @@
         <meta name="description" content="ページの内容を表す文章" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title></title>
+        <title>AtlasSNS</title>
 
         <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -22,11 +22,23 @@
         <!--iphoneのアプリアイコン指定-->
         <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     </head>
+
     <body>
         <header>
-            <h1><img src="images/atlas.png" class="title_logo"></h1>
+            <h1><img src="images/atlas.png" class="title_logo" alt="Atlasロゴ"></h1>
             <h2 class="title">Social Network Service</h2>
         </header>
+
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+            </div>
+        @endif
+
         <div id="container">
             {{ $slot }}
         </div>
