@@ -19,7 +19,7 @@ class FollowsController extends Controller
     }
 
     public function followList(){
-        $followings = User::where('id', '!=', Auth::user()->id)->get();
+        $followings = User::where('id', '!=', Auth::id())->get();
 
         $following_id = Auth::user()->follows()->pluck('followed_id');
         $posts = Post::with('user')->whereIn('user_id', $following_id)->latest('updated_at')->get();
@@ -28,7 +28,7 @@ class FollowsController extends Controller
     }
 
     public function followerList(){
-        $followers = User::where('id', '!=', Auth::user()->id)->get();
+        $followers = User::where('id', '!=', Auth::id())->get();
 
         $followed_id = Follow::where('followed_id', Auth::user()->id)->pluck('following_id');
         $posts = Post::with('user')->whereIn('user_id', $followed_id)->latest('updated_at')->get();
@@ -37,12 +37,12 @@ class FollowsController extends Controller
     }
 
     public function add($id){
-        Follow::create(['following_id' => Auth::user()->id, 'followed_id' => $id]);
+        Follow::create(['following_id' => Auth::id(), 'followed_id' => $id]);
         return back();
     }
 
     public function cancel($id){
-        $follow = Follow::where('following_id', Auth::user()->id)->where('followed_id', $id)->first();
+        $follow = Follow::where('following_id', Auth::id())->where('followed_id', $id)->first();
         Follow::where('id', $follow->id)->delete();
         return back();
     }
