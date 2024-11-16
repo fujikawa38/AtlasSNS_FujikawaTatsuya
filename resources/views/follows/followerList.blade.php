@@ -6,7 +6,13 @@
         @foreach($followers as $follower)
         @if ($follower->relation() == 2 || $follower->relation() == 3)
             <div class="follow_icon">
-                <a href="{{ route('profile.other', ['id' => $follower->id]) }}"><img src="{{ asset('storage/' . $follower->icon_image) }}" alt="アイコン画像"></a>
+                <a href="{{ route('profile.other', ['id' => $follower->id]) }}">
+                    @if ($follower->icon_image != "icon1.png")
+                    <img src="{{ asset('storage/' . $follower->icon_image) }}" alt="アイコン画像">
+                    @else
+                    <img src="{{ asset('images/icon1.png') }}" alt="アイコン画像">
+                    @endif
+                </a>
             </div>
         @endif
         @endforeach
@@ -19,7 +25,11 @@
         <ul class="post_block">
             <li>
                 <a href="{{ route('profile.other', ['id' => $post->user->id]) }}">
+                    @if ($post->user->icon_image != "icon1.png")
                     <img src="{{ asset('storage/' . $post->user->icon_image) }}" alt="アイコン画像">
+                    @else
+                    <img src="{{ asset('images/icon1.png') }}" alt="アイコン画像">
+                    @endif
                 </a>
             </li>
             <li class="post_content">

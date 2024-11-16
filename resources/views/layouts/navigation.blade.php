@@ -15,7 +15,11 @@
                     </ul>
                 </div>
                 <div>
+                    @if (Auth::user()->icon_image != "icon1.png")
                     <img src= "{{ asset('storage/' . Auth::user() -> icon_image) }}">
+                    @else
+                    <img src="{{ asset('images/icon1.png') }}" alt="アイコン画像">
+                    @endif
                 </div>
             </nav>
         </div>

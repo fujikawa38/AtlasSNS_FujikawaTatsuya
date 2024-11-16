@@ -14,7 +14,13 @@
 <article>
     @foreach ($users as $user)
     <ul id="searchUser">
-        <li class="search_image"><img src="{{ asset('storage/' . $user->icon_image ) }}" alt="アイコン画像"></li>
+        <li class="search_image">
+            @if ($user->icon_image != "icon1.png")
+            <img src="{{ asset('storage/' . $user->icon_image ) }}" alt="アイコン画像">
+            @else
+            <img src="{{ asset('images/icon1.png') }}" alt="アイコン画像">
+            @endif
+        </li>
         <li class="search_name">{{ $user->username }}</li>
     @if ($user->relation() == 1 || $user->relation() == 3)
         <li class="follow_button">

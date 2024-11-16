@@ -4,7 +4,11 @@
 @if ($profile->id == Auth::id())
 <article id="profileContent">
     <div class="profile_image">
+        @if (Auth::user()->icon_image != "icon1.png")
         <img src="{{ asset('storage/' . $profile->icon_image) }}" alt="アイコン画像">
+        @else
+        <img src="{{ asset('images/icon1.png') }}" alt="アイコン画像">
+        @endif
     </div>
     {{ Form::open(['route' => 'profile.update', 'enctype' => 'multipart/form-data', 'class' => 'profile_form']) }}
         <div class="profile_item">
@@ -45,7 +49,11 @@
 @if ($profile->id != Auth::id())
 <article id="profileOthers">
     <div class="others_icon">
+        @if ($profile->icon_image != "icon1.png")
         <img src="{{ asset('storage/' . $profile->icon_image) }}" alt="アイコン画像">
+        @else
+        <img src="{{ asset('images/icon1.png') }}" alt="アイコン画像">
+        @endif
     </div>
     <div class="others_block">
         <div class="others_content">
@@ -74,7 +82,11 @@
     <div class="user_post">
         <ul class="post_block">
             <li>
+                @if ($post->user->icon_image != "icon1.png")
                 <img src="{{ asset('storage/' . $post->user->icon_image) }}" alt="アイコン画像">
+                @else
+                <img src="{{ asset('images/icon1.png') }}" alt="アイコン画像">
+                @endif
             </li>
             <li class="post_content">
                 <div>
